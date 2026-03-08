@@ -1,0 +1,12 @@
+# Theme
+theme = "Catppuccin Macchiato"
+
+# Comfortable defaults
+font-size = 14
+window-padding-x = 8
+window-padding-y = 6
+background-opacity = 0.97
+background-blur = true
+cursor-style = block
+cursor-style-blink = false
+copy-on-select = false
