@@ -266,7 +266,7 @@ end)
 local map = vim.keymap.set
 map("n", "<leader>e", "<cmd>TreeDxToggle<cr>", { desc = "TreeDx toggle" })
 map("n", "<leader>E", "<cmd>TreeDxGitToggle<cr>", { desc = "TreeDx git toggle" })
-map("n", "<leader>gg", "<cmd>GitDx<cr>", { desc = "GitDx panel" })
+map("n", "<leader>gg", "<cmd>GitDxRight<cr>", { desc = "GitDx panel" })
 map("n", "<leader>gd", "<cmd>GitDxDiff<cr>", { desc = "GitDx diff" })
 map("n", "<leader>wS", "<cmd>WorkflowSave<cr>", { desc = "Workflow save" })
 map("n", "<leader>wL", "<cmd>WorkflowLoad<cr>", { desc = "Workflow load" })
