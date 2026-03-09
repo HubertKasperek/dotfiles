@@ -1,6 +1,6 @@
 # tmux-bootstrap
 
-Tmux bootstrap for fast setup on a new machine.
+tmux bootstrap for fast setup on a new machine.
 
 ## What is included
 
@@ -14,6 +14,8 @@ Tmux bootstrap for fast setup on a new machine.
   - Catppuccin Macchiato inspired palette
   - keyboard-first workflow (vi copy mode, pane navigation/resizing, safe kill prompts)
   - practical DX defaults (mouse, high history, path-aware splits, indexing from `1`)
+- `tmux/scripts/git-status.sh`
+  - local git status segment for tmux statusline (branch + dirty/ahead/behind)
 
 ## Requirements
 
@@ -44,6 +46,17 @@ Inside tmux, reload config with `Prefix + r` (`Prefix` is `Ctrl-a` in this setup
 - Resize panes with `Prefix + H/J/K/L`.
 - Enter copy mode with `Prefix + y` (vi motions enabled).
 - Use `Prefix + C-f` to quickly switch sessions.
+- Rename window with:
+  - `Prefix + ,` (custom prompt)
+  - `Prefix + R` (custom prompt)
+- Use `Prefix + g` for popup `git status`.
+- Use `Prefix + G` for popup `git log --graph --oneline`.
+- Status line shows current repo branch and git state for active pane path.
+- Right click on a pane opens a context menu with:
+  - new window
+  - horizontal/vertical split
+  - rename window
+  - close pane/window
 
 ## Notes
 

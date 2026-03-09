@@ -5,6 +5,8 @@ CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_CONFIG="$SCRIPT_DIR/tmux/tmux.conf"
 TARGET_CONFIG="$CONFIG_DIR/tmux.conf"
+SOURCE_SCRIPTS_DIR="$SCRIPT_DIR/tmux/scripts"
+TARGET_SCRIPTS_DIR="$CONFIG_DIR/scripts"
 LEGACY_CONFIG="$HOME/.tmux.conf"
 
 require_cmd() {
@@ -64,10 +66,19 @@ install_xdg_config() {
     exit 1
   fi
 
+  if [[ ! -d "$SOURCE_SCRIPTS_DIR" ]]; then
+    echo "Scripts directory not found: $SOURCE_SCRIPTS_DIR" >&2
+    exit 1
+  fi
+
   mkdir -p "$CONFIG_DIR"
+  mkdir -p "$TARGET_SCRIPTS_DIR"
   backup_file "$TARGET_CONFIG"
   cp "$SOURCE_CONFIG" "$TARGET_CONFIG"
+  cp -R "$SOURCE_SCRIPTS_DIR"/. "$TARGET_SCRIPTS_DIR"
+  chmod +x "$TARGET_SCRIPTS_DIR"/*.sh
   echo "Installed tmux config: $TARGET_CONFIG"
+  echo "Installed tmux scripts: $TARGET_SCRIPTS_DIR"
 }
 
 install_legacy_loader() {
@@ -85,6 +96,7 @@ install_legacy_loader() {
 
 main() {
   require_cmd cp
+  require_cmd chmod
   require_cmd grep
   require_cmd mktemp
   require_cmd mkdir
