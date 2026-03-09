@@ -25,7 +25,7 @@ opt.pumblend = 8
 opt.fillchars = { eob = " " }
 
 -- Theme options: "dracula" | "catppuccin" | "night_owl" | "ayu"
-local ACTIVE_THEME = "dracula"
+local ACTIVE_THEME = "catppuccin"
 
 local themes = {
   dracula = {
