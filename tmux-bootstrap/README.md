@@ -50,7 +50,7 @@ Inside tmux, reload config with `Prefix + r` (`Prefix` is `Ctrl-a` in this setup
   - `Prefix + ,` (custom prompt)
   - `Prefix + R` (custom prompt)
 - Use `Prefix + g` for popup `git status`.
-- Use `Prefix + G` for popup detailed `git log` (hash, date, author, refs, subject).
+- Use `Prefix + G` for popup detailed `git log` with `HEAD` + numeric offsets (`1`, `2`, `3`...).
 - Status line shows current repo branch for active pane path (no output outside a repo).
 - Right click on a pane opens a context menu with:
   - new window

@@ -32,18 +32,25 @@ if ! git -C "$repo_path" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   exit 0
 fi
 
-pretty='%C(yellow)%h%Creset %C(blue)%ad%Creset %C(green)%an%Creset %C(auto)%d%Creset %s'
+pretty='%H%x1f%C(yellow)%h%Creset %C(blue)%ad%Creset %C(green)%an%Creset %C(auto)%d%Creset %s'
 tmp_file="$(mktemp)"
 
 git -C "$repo_path" --no-pager log \
-  --graph \
+  --first-parent \
   --decorate \
-  -n 200 \
+  -n 500 \
   --date=iso-strict-local \
   --color=always \
-  --pretty=format:"$pretty" >"$tmp_file"
+  --pretty=format:"$pretty" \
+  | awk -F $'\x1f' '
+    {
+      n = NR - 1
+      ref = (n == 0) ? "HEAD" : n
+      printf "%-9s %s\n", ref, $2
+    }
+  ' >"$tmp_file"
 
-if command -v less >/dev/null 2>&1; then
+if command -v less >/dev/null 2>&1 && [[ -t 1 ]]; then
   echo "Press q to exit log view." >"$tmp_file.header"
   cat "$tmp_file.header" "$tmp_file" >"$tmp_file.view"
   mv "$tmp_file.view" "$tmp_file"
