@@ -14,8 +14,8 @@ tmux bootstrap for fast setup on a new machine.
   - Catppuccin Macchiato inspired palette
   - keyboard-first workflow (vi copy mode, pane navigation/resizing, safe kill prompts)
   - practical DX defaults (mouse, high history, path-aware splits, indexing from `1`)
-- `tmux/scripts/git-status.sh`
-  - local git status segment for tmux statusline (branch + dirty/ahead/behind)
+- `tmux/scripts/git-log-popup.sh`
+  - popup `git log` view for `Prefix + G`
 
 ## Requirements
 
@@ -51,7 +51,7 @@ Inside tmux, reload config with `Prefix + r` (`Prefix` is `Ctrl-a` in this setup
   - `Prefix + R` (custom prompt)
 - Use `Prefix + g` for popup `git status`.
 - Use `Prefix + G` for popup detailed `git log` (hash, date, author, refs, subject).
-- Status line shows current repo branch and git state for active pane path.
+- Status line shows current repo branch for active pane path (no output outside a repo).
 - Right click on a pane opens a context menu with:
   - new window
   - horizontal/vertical split
