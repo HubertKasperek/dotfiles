@@ -3,7 +3,7 @@ vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
